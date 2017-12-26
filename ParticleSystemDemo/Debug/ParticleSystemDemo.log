@@ -1,0 +1,72 @@
+﻿Build started 2017-12-26 오후 10:05:35.
+     1>Project "C:\Development\ParticleSystem\ParticleSystemDemo\ParticleSystemDemo.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Colour.cpp Engine.cpp Game.cpp ParticleEmitter.cpp ParticleSystem.cpp ParticleSystemTestState.cpp Rectangle.cpp RenderContainer.cpp RenderingEngine.cpp ShaderObject.cpp VBO.cpp VBOBatcher.cpp main.cpp
+         VBOBatcher.cpp
+         VBO.cpp
+         RenderingEngine.cpp
+         RenderContainer.cpp
+         Rectangle.cpp
+         ParticleSystemTestState.cpp
+     1>c:\development\particlesystem\particlesystemdemo\particlesystemteststate.cpp(51): warning C4305: 'argument': truncation from 'double' to 'float'
+         ParticleSystem.cpp
+         ParticleEmitter.cpp
+     1>c:\development\particlesystem\particlesystemdemo\particleemitter.cpp(79): warning C4244: 'argument': conversion from 'float' to 'GLubyte', possible loss of data
+         Game.cpp
+         Engine.cpp
+         Colour.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         main.cpp
+         ShaderObject.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.exe" /INCREMENTAL /NOLOGO glew32.lib opengl32.lib SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.lib" /MACHINE:X86 Debug\AABB.obj
+         Debug\Colour.obj
+         Debug\Engine.obj
+         Debug\Game.obj
+         Debug\GameState.obj
+         Debug\GateTimer.obj
+         Debug\GenericShaderObject.obj
+         Debug\GLTexture.obj
+         Debug\InputManager.obj
+         Debug\Logger.obj
+         Debug\main.obj
+         Debug\Object.obj
+         Debug\OrthographicCamera.obj
+         Debug\ParticleEmitter.obj
+         Debug\ParticleSystem.obj
+         Debug\ParticleSystemTestState.obj
+         Debug\Rectangle.obj
+         Debug\RenderContainer.obj
+         Debug\RenderingEngine.obj
+         Debug\ShaderObject.obj
+         Debug\TaskMaster.obj
+         Debug\Texture.obj
+         Debug\TextureAsset.obj
+         Debug\Unit.obj
+         Debug\UVBounds.obj
+         Debug\VBO.obj
+         Debug\VBOBatcher.obj
+         Debug\Window.obj
+            Creating library C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.lib and object C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.exp
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>SDL2_image.lib(IMG.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_bmp.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_bmp.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_gif.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_gif.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_jpg.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_jpg.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_lbm.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_lbm.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_pcx.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_pcx.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_png.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_png.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_pnm.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_pnm.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_tga.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_tga.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_tif.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_tif.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_webp.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_webp.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_xcf.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_xcf.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_xpm.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_xpm.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+     1>SDL2_image.lib(IMG_xv.obj) : warning LNK4099: PDB 'SDL2_image.pdb' was not found with 'SDL2_image.lib(IMG_xv.obj)' or at 'C:\Development\ParticleSystem\ParticleSystemDemo\Debug\SDL2_image.pdb'; linking object as if no debug info
+         ParticleSystemDemo.vcxproj -> C:\Development\ParticleSystem\ParticleSystemDemo\Debug\ParticleSystemDemo.exe
+     1>Done Building Project "C:\Development\ParticleSystem\ParticleSystemDemo\ParticleSystemDemo.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:14.27

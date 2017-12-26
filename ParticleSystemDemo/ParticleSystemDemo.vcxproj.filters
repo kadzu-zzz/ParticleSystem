@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ParticleSystem">
+      <UniqueIdentifier>{3eb0e8c3-20bf-4a09-97d4-72ffc833a10f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleSystem">
+      <UniqueIdentifier>{a2fe6435-e3b3-47fa-90cc-520c5fb6c4df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{45ae6000-d818-41b3-b5d9-471c3c2612e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{3ee11738-d8f9-42ce-a94a-eb7285be4bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\GL">
+      <UniqueIdentifier>{37efcd5a-6ef0-47b1-a051-6facfdcbb805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\GL">
+      <UniqueIdentifier>{d248697d-6f06-4919-84f6-4015d6e149f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\Util">
+      <UniqueIdentifier>{4ac81e75-0aa0-4cd1-a95b-eb7873aeedc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Util">
+      <UniqueIdentifier>{26d77b9e-c03c-42e5-95d5-d6b0dcc24526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\Util\Generic">
+      <UniqueIdentifier>{c06708cd-2c96-49fe-9da1-bde5d7853641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\Util\Input">
+      <UniqueIdentifier>{ba115066-ff05-48d6-832a-f806d0ad1895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renderer\Util\Timing">
+      <UniqueIdentifier>{0d167622-6c35-41f2-9cc1-718ae39d542f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Util\Input">
+      <UniqueIdentifier>{a1c0b0f5-8c4f-444c-a257-4048accc8e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Util\Generic">
+      <UniqueIdentifier>{2c3d6c17-732e-4017-89e3-efd7adaee5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Util\Timing">
+      <UniqueIdentifier>{2cb09c2e-8498-4e86-948b-4c3ab25396ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Colour.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLTexture.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="VBOBatcher.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericShaderObject.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Renderer\Util\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Renderer\Util\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderObject.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GateTimer.cpp">
+      <Filter>Source Files\Renderer\Util\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskMaster.cpp">
+      <Filter>Source Files\Renderer\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="AABB.cpp">
+      <Filter>Source Files\Renderer\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files\Renderer\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemTestState.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="OrthographicCamera.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEmitter.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>Source Files\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderContainer.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureAsset.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="UVBounds.cpp">
+      <Filter>Source Files\Renderer\GL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RenderingEngine.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Colour.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLTexture.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderObject.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBatch.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Glyph.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="VBOBatcher.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Exit.h">
+      <Filter>Header Files\Renderer\Util\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\Renderer\Util\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Renderer\Util\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Renderer\Util\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericShaderObject.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Profile.h">
+      <Filter>Header Files\Renderer\Util\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="StopWatch.h">
+      <Filter>Header Files\Renderer\Util\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskMaster.h">
+      <Filter>Header Files\Renderer\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="GateTimer.h">
+      <Filter>Header Files\Renderer\Util\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemTestState.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="OrthographicCamera.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>Header Files\Renderer\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Header Files\Renderer\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Header Files\Renderer\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="UVBounds.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderContainer.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAsset.h">
+      <Filter>Header Files\Renderer\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitter.h">
+      <Filter>Header Files\ParticleSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
