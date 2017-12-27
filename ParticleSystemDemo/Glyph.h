@@ -25,6 +25,8 @@ public:
 
 struct TriangleGlyph : public Glyph<triangleVerts()> {
 public:
+	TriangleGlyph() : Glyph(nullptr, std::array<Vertex, triangleVerts()>()) {
+	}
 	TriangleGlyph(GLTexture* texture, std::array<Vertex, triangleVerts()> nVerts) : Glyph(texture, nVerts) {
 	}
 };

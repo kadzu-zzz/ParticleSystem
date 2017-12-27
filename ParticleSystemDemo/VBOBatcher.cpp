@@ -27,46 +27,32 @@ void VBOBatcher::add(RectangleGlyph glyph) {
 
 void VBOBatcher::add(TriangleGlyph glyph) {
 	vertexCount += triangleVerts();
-	lock.try_lock_shared();
+
 	auto gg = glyphs.find(glyph.texture);
 	if (gg != glyphs.end()) {
 		gg->second.addGlyph(glyph);
-		lock.unlock_shared();
 	} else {
-		lock.unlock_shared();
-		lock.try_lock();
 		glyphs.insert(std::make_pair(glyph.texture, GlyphContainer<TriangleGlyph>(glyph)));
-		lock.unlock();
 	}
 }
 
 void VBOBatcher::add(TriangleStripGlyph glyph) {
-	lock.try_lock_shared();
 	vertexCount += glyph.vertexes.size();
 	auto gg = stripGlyphs.find(glyph.texture);
 	if (gg != stripGlyphs.end()) {
 		gg->second.addGlyph(glyph);
-		lock.unlock_shared();
 	} else {
-		lock.unlock_shared();
-		lock.try_lock();
 		stripGlyphs.insert(std::make_pair(glyph.texture, GlyphContainer<TriangleStripGlyph>(glyph)));
-		lock.unlock();
 	}
 }
 
 void VBOBatcher::add(TriangleFanGlyph glyph) {
-	lock.try_lock_shared();
 	vertexCount += glyph.vertexes.size();
 	auto gg = fanGlyphs.find(glyph.texture);
 	if (gg != fanGlyphs.end()) {
 		gg->second.addGlyph(glyph);
-		lock.unlock_shared();
 	} else {
-		lock.unlock_shared();
-		lock.try_lock();
 		fanGlyphs.insert(std::make_pair(glyph.texture, GlyphContainer<TriangleFanGlyph>(glyph)));
-		lock.unlock();
 	}
 }
 

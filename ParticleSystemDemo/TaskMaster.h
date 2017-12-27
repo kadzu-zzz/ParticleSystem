@@ -23,11 +23,11 @@ public:
 	std::function<void()> task;
 };
 
-__declspec(align(128))
+__declspec(align(64))
 struct Thread {
 	std::thread thread;
 
-	void* operator new(size_t i){ return _mm_malloc(i, 128); }
+	void* operator new(size_t i){ return _mm_malloc(i, 64); }
 	void operator delete(void* p) { _mm_free(p); }
 };
 

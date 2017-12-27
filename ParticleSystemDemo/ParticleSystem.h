@@ -21,5 +21,7 @@ public:
 protected:
 	Rectangle Render;
 	std::vector<ParticleEmitter> Emitters;
+
+	std::vector<TriangleGlyph> RenderGlyphs;
 };
 

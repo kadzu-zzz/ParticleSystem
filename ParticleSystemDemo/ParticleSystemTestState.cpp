@@ -15,45 +15,20 @@ ParticleSystemTestState::~ParticleSystemTestState() {
 void ParticleSystemTestState::initialise() {
 	camera.initialise(Unit().setAsPixel(VIDEO_OUTPUT_WIDTH_DEFAULT), Unit().setAsPixel(VIDEO_OUTPUT_HEIGHT_DEFAULT));
 
-	Particle PrototypeParticle = Particle(0, 0, 0, 0.25, 0.25, Colour(100, 0, 0, 255), 8.0f);
-	PrototypeParticle.xVelocity = 0.0f;
-	PrototypeParticle.yVelocity = 0.81f;
-	PrototypeParticle.radialAcceleration = -3.81f;
-	PrototypeParticle.endColour = Colour(0, 0, 0, 255);
+	Particle HyperSpaceParticle = Particle(0, 0, 0, 0.25, 0.25, Colour(100, 0, 0, 255), 8.0f);
+	HyperSpaceParticle.xVelocity = 0.0f;
+	HyperSpaceParticle.yVelocity = 0.81f;
+	HyperSpaceParticle.radialAcceleration = -3.81f;
+	HyperSpaceParticle.endColour = Colour(0, 0, 0, 255);
 
-	ParticleEmitter TestEmitter = ParticleEmitter(PrototypeParticle, 200.0f);
-	TestEmitter.SetVariableLifeSpan(2.5f);
-	TestEmitter.SetVariableSpawn(40.0f, 40.0f);
-	//TestEmitter.SetVariableVelocity(0.4f, 0.3f);
-	TestEmitter.SetVariableSizeSpawn(0.1f, 0.1f);
-	//TestEmitter.SetVariableRadial(0.0f, 4.0f);
-	//TestEmitter.SetVariableTangential(0.0f, 1.0f);
-	TestEmitter.SetTexture(TextureAsset::getTexture("particle.png"));
+	ParticleEmitter HyperSpaceEmitter = ParticleEmitter(HyperSpaceParticle, 200.0f);
+	HyperSpaceEmitter.SetVariableLifeSpan(2.5f);
+	HyperSpaceEmitter.SetVariableSpawn(40.0f, 40.0f);
+	HyperSpaceEmitter.SetVariableSizeSpawn(0.1f, 0.1f);
+	HyperSpaceEmitter.SetVariableRadial(0.0f, 4.0f);
+	HyperSpaceEmitter.SetTexture(TextureAsset::getTexture("particle.png"));
 
-	Particle PrototypeParticle2 = Particle(0, 0, 0, 0.25, 0.25, Colour(100, 100, 0, 255), 4.0f);
-	//PrototypeParticle2.xVelocity = 0.0f;
-	//PrototypeParticle2.yVelocity = 0.71f;
-	PrototypeParticle2.radialAcceleration  = 0.3f;
-	PrototypeParticle2.tangentialAcceleration = 0.35f;
-	PrototypeParticle2.endColour = Colour(0, 0, 0, 255);
-
-	ParticleEmitter TestEmitter2 = ParticleEmitter(PrototypeParticle2, 100.0f);
-	TestEmitter2.SetVariableLifeSpan(2.5f);
-	TestEmitter2.SetVariableSpawn(0.5125f, 0.60f);
-	TestEmitter2.SetVariableVelocity(0.3f, 0.25f);
-	TestEmitter2.SetVariableRadial(0.0f, 0.30f);
-	TestEmitter2.SetVariableTangential(0.0f, 0.31f);
-	TestEmitter2.SetTexture(TextureAsset::getTexture("particle.png"));
-
-	TestSystem.AddEmitter(TestEmitter2);
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-	TestSystem.AddEmitter(ParticleEmitter(TestEmitter2));
-
-	TestSystem.AddEmitter(TestEmitter);
+	TestSystem.AddEmitter(HyperSpaceEmitter);
 
 	Particle SwirlParticle = Particle(0, 0, 0, 0.1, 0.1, Colour(50,50, 50, 100), 5.0f);
 	SwirlParticle.endColour = Colour(0, 0, 0, 255);

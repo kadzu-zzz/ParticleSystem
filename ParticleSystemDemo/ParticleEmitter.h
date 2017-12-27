@@ -4,6 +4,7 @@
 
 #include "Rectangle.h"
 #include "Texture.h"
+#include "Glyph.h"
 
 #include <functional>
 #include <vector>
@@ -15,7 +16,8 @@ public:
 	~ParticleEmitter();
 
 	void update(float deltaTime);
-	void render(Rectangle& Renderable, RenderingEngine* Engine);
+
+	void giveRenderGlyphs(Rectangle Renderable, std::vector<TriangleGlyph>* Glyphs, unsigned int offset);
 
 	void SetVariableLifeSpan(float VLifeSpan);
 	void SetVariableSpawn(float VX, float VY, float VRot = 0.0f);
@@ -58,6 +60,10 @@ public:
 	void SetCustomSpawnFunction(std::function<Particle(ParticleEmitter*)> SpawnFunction);
 	bool HasCustomSpawnFunction();
 	void ClearCustomSpawnFunction();
+
+	void SetUpdateFunctionFunction(std::function<Particle(ParticleEmitter*)> UpdateFunction);
+	bool HasUpdateFunctionFunction();
+	void ClearUpdateFunctionFunction();
 protected:
 	TextureResource Texture;
 	Particle Prototype;
@@ -65,6 +71,7 @@ protected:
 	std::vector<Particle> Particles;
 
 	std::function<Particle(ParticleEmitter*)> SpawnFunction;
+	std::function<void(Particle*, ParticleEmitter*)> UpdateFunction;
 
 	float OffsetX, OffsetY;
 

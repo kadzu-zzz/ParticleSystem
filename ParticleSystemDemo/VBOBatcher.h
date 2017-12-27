@@ -76,6 +76,19 @@ public:
 			add(glyphs[i]);
 	}
 
+	//Add array of triangle glyphs
+	void add(std::vector<TriangleGlyph> glyphs) {
+		vertexCount += triangleVerts() * glyphs.size();
+		for (unsigned int e = 0; e < glyphs.size(); e++) {
+			auto gg = this->glyphs.find(glyphs[e].texture);
+			if (gg != this->glyphs.end()) {
+				gg->second.addGlyph(glyphs[e]);
+			} else {
+				this->glyphs.insert(std::make_pair(glyphs[e].texture, GlyphContainer<TriangleGlyph>(glyphs[e])));
+			}
+		}
+	}
+
 	void prepare();
 	bool isPrepared();
 
@@ -95,8 +108,6 @@ private:
 	std::vector<RenderBatch> batches;
 	RenderBatch lineBatch;
 
-	std::atomic_uint vertexCount;
-
-	std::shared_timed_mutex lock;
+	unsigned int vertexCount;
 };
 

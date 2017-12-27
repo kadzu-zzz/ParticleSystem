@@ -82,65 +82,75 @@ void ParticleEmitter::update(float deltaTime) {
 
 		SpawnTimer += SpawnPerSecondInverse;
 	}
-	for (unsigned int i = 0; i < Particles.size(); i++) {
-		Particles[i].lifeSpan -= deltaTime;
-		
-		if (Particles[i].bLinearAcceleration) {
-			Particles[i].xVelocity += Particles[i].xAcceleration * deltaTime;
-			Particles[i].yVelocity += Particles[i].yAcceleration * deltaTime;
-			Particles[i].rotVelocity += Particles[i].rotAcceleration * deltaTime;
+	if (UpdateFunction) {
+		for (unsigned int i = 0; i < Particles.size(); i++) {
+			UpdateFunction(&Particles[i], this);
 		}
-		if (Particles[i].bLinearVelocity) {
-			Particles[i].x += Particles[i].xVelocity * deltaTime;
-			Particles[i].y += Particles[i].yVelocity * deltaTime;
-			Particles[i].rot += Particles[i].rotVelocity * deltaTime;
-		}
-		if (Particles[i].bSizeAcceleration) {
-			Particles[i].widthVelocity += Particles[i].widthAcceleration * deltaTime;
-			Particles[i].heightVelocity += Particles[i].heightAcceleration * deltaTime;
-		}
-		if (Particles[i].bSizeVelocity) {
-			Particles[i].width += Particles[i].widthVelocity * deltaTime;
-			Particles[i].height += Particles[i].heightVelocity * deltaTime;
-		}
-		if (Particles[i].bOrbitalAcceleration) {
-			Particles[i].tangentialVelocity += Particles[i].tangentialAcceleration * deltaTime;
-			Particles[i].radialVelocity += Particles[i].radialAcceleration * deltaTime;
-		}
-		if (Particles[i].bOrbitalVelocity) {
-			float XDifference = OffsetX - Particles[i].x;
-			float YDifference = OffsetY - Particles[i].y;
+	} else {
+		for (unsigned int i = 0; i < Particles.size(); i++) {
 
-			float RadialDir = std::atan2f(Particles[i].y - OffsetY, Particles[i].x - OffsetX);
-			float TangentialDir = RadialDir + 1.5708f;
+			Particles[i].lifeSpan -= deltaTime;
 
-			Particles[i].x += (Particles[i].tangentialVelocity != 0.0f ? (std::cos(TangentialDir) * Particles[i].tangentialVelocity * deltaTime) : 0.0f) + 
-				(Particles[i].radialVelocity != 0.0f ? (std::cos(RadialDir) * Particles[i].radialVelocity * deltaTime) : 0.0f);
-			Particles[i].y += (Particles[i].tangentialVelocity != 0.0f ? (std::sin(TangentialDir) * Particles[i].tangentialVelocity * deltaTime) : 0.0f) +
-				(Particles[i].radialVelocity != 0.0f ? (std::sin(RadialDir) * Particles[i].radialVelocity * deltaTime) : 0.0f);
+			if (Particles[i].bLinearAcceleration) {
+				Particles[i].xVelocity += Particles[i].xAcceleration * deltaTime;
+				Particles[i].yVelocity += Particles[i].yAcceleration * deltaTime;
+				Particles[i].rotVelocity += Particles[i].rotAcceleration * deltaTime;
+			}
+			if (Particles[i].bLinearVelocity) {
+				Particles[i].x += Particles[i].xVelocity * deltaTime;
+				Particles[i].y += Particles[i].yVelocity * deltaTime;
+				Particles[i].rot += Particles[i].rotVelocity * deltaTime;
+			}
+			if (Particles[i].bSizeAcceleration) {
+				Particles[i].widthVelocity += Particles[i].widthAcceleration * deltaTime;
+				Particles[i].heightVelocity += Particles[i].heightAcceleration * deltaTime;
+			}
+			if (Particles[i].bSizeVelocity) {
+				Particles[i].width += Particles[i].widthVelocity * deltaTime;
+				Particles[i].height += Particles[i].heightVelocity * deltaTime;
+			}
+			if (Particles[i].bOrbitalAcceleration) {
+				Particles[i].tangentialVelocity += Particles[i].tangentialAcceleration * deltaTime;
+				Particles[i].radialVelocity += Particles[i].radialAcceleration * deltaTime;
+			}
+			if (Particles[i].bOrbitalVelocity) {
+				float XDifference = OffsetX - Particles[i].x;
+				float YDifference = OffsetY - Particles[i].y;
 
-		}
+				float RadialDir = std::atan2f(Particles[i].y - OffsetY, Particles[i].x - OffsetX);
+				float TangentialDir = RadialDir + 1.5708f;
 
-		if (Particles[i].lifeSpan <= 0.0f) {
-			if (i != Particles.size()) {
-				Particles[i] = Particles.back();
-				--i;
-			} 
-			Particles.pop_back();
+				Particles[i].x += (Particles[i].tangentialVelocity != 0.0f ? (std::cos(TangentialDir) * Particles[i].tangentialVelocity * deltaTime) : 0.0f) +
+					(Particles[i].radialVelocity != 0.0f ? (std::cos(RadialDir) * Particles[i].radialVelocity * deltaTime) : 0.0f);
+				Particles[i].y += (Particles[i].tangentialVelocity != 0.0f ? (std::sin(TangentialDir) * Particles[i].tangentialVelocity * deltaTime) : 0.0f) +
+					(Particles[i].radialVelocity != 0.0f ? (std::sin(RadialDir) * Particles[i].radialVelocity * deltaTime) : 0.0f);
+
+			}
+
+			if (Particles[i].lifeSpan <= 0.0f) {
+				if (i != Particles.size()) {
+					Particles[i] = Particles.back();
+					--i;
+				}
+				Particles.pop_back();
+			}
 		}
 	}
 }
 
-void ParticleEmitter::render(Rectangle & Renderable, RenderingEngine * Engine) {
+void ParticleEmitter::giveRenderGlyphs(Rectangle Renderable, std::vector<TriangleGlyph>* Glyphs, unsigned int offset) {
 	Renderable.setTexture(Texture);
+	std::array<TriangleGlyph, 2> Glyph = {};
 	for (unsigned int i = 0; i < Particles.size(); i++) {
 		Renderable.setCenter(Particles[i].x, Particles[i].y);
 		Renderable.setSize(Particles[i].width, Particles[i].height);
 		Renderable.setRotation(Particles[i].rot);
-		
-		Renderable.setColour(Particles[i].startColour.lerp(Particles[i].endColour, ( 1.0f - (Particles[i].lifeSpan / Particles[i].startLifeSpan))));
 
-		Renderable.sendRenderInformationEngine(Engine);
+		Renderable.setColour(Particles[i].startColour.lerp(Particles[i].endColour, (1.0f - (Particles[i].lifeSpan / Particles[i].startLifeSpan))));
+
+		Glyph = Renderable.getRenderGlyphs();
+		(*Glyphs)[offset++] = Glyph[0];
+		(*Glyphs)[offset++] = Glyph[1];
 	}
 }
 
@@ -283,6 +293,18 @@ bool ParticleEmitter::HasCustomSpawnFunction() {
 
 void ParticleEmitter::ClearCustomSpawnFunction() {
 	SpawnFunction = nullptr;
+}
+
+void ParticleEmitter::SetUpdateFunctionFunction(std::function<Particle(ParticleEmitter*)> UpdateFunction) {
+	this->UpdateFunction = UpdateFunction;
+}
+
+bool ParticleEmitter::HasUpdateFunctionFunction() {
+	return UpdateFunction.operator bool();
+}
+
+void ParticleEmitter::ClearUpdateFunctionFunction() {
+	UpdateFunction = nullptr;
 }
 
 inline float ParticleEmitter::GetVariableValue(float Variable) {

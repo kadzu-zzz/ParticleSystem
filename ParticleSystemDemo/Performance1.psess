@@ -67,14 +67,6 @@
       <ProjName>ParticleSystemDemo</ProjName>
     </ProjBinary>
   </Binaries>
-  <Reports>
-    <Report>
-      <Path>ParticleSystemDemo171226.vsp</Path>
-    </Report>
-    <Report>
-      <Path>ParticleSystemDemo171226(1).vsp</Path>
-    </Report>
-  </Reports>
   <Launches>
     <ProjBinary>
       <Path>:PB:{0C9F160C-D28A-4742-BF96-D5A03EA86B1D}|ParticleSystemDemo.vcxproj</Path>

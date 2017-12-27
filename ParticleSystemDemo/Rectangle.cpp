@@ -176,6 +176,15 @@ bool Rectangle::isFlipY() {
 	return flipY;
 }
 
+
+
+std::array<TriangleGlyph, 2> Rectangle::getRenderGlyphs() {
+	if (needsReconstructed)
+		reconstruct();
+
+	return glyph.disposeIntoTriangles();
+}
+
 void Rectangle::sendRenderInformation(VBOBatcher* target) {
 	if (needsReconstructed)
 		reconstruct();

@@ -1,11 +1,11 @@
 #include "ParticleSystem.h"
 
-
+#include "TaskMaster.h"
+#include "RenderingEngine.h"
 
 ParticleSystem::ParticleSystem() : Object(true, true) {
 	Render.intialise(TextureAsset::getTexture("arrow.png"), 0, 0, 0.5f, 0, 0, 1.0f, 1.0f, 0.0f, Colour(255, 255, 255, 255));
 }
-
 
 ParticleSystem::~ParticleSystem() {
 }
@@ -14,17 +14,12 @@ void ParticleSystem::AddEmitter(ParticleEmitter emitter) {
 	Emitters.push_back(emitter);
 }
 
-#include "TaskMaster.h"
-
 void ParticleSystem::update(float deltaSeconds) {
 	if (Emitters.size() > 1) {
-		for (int i = 1; i < Emitters.size(); i++) {
+		//Multithreading masses of trig operations does give a reasonable speed increase ~(10% with 10K particles using trig) without any noticiable synchronization issues. The speed increase is more negligible when using purely linear particles.
+		for (int i = 0; i < Emitters.size(); i++) {
 			TaskMaster::addTask(MakeTask(std::bind(&ParticleEmitter::update, &Emitters[i], deltaSeconds)));
 		}
-		//update emitter0 on the main thread and continue, mabye move it off when theres more stuff happening in the enviroment (
-		// Basically we don't want to waste the main threads processing power.
-		//)
-		Emitters[0].update(deltaSeconds);
 	} else {
 		for (ParticleEmitter& emitter : Emitters) {
 			emitter.update(deltaSeconds);
@@ -33,9 +28,28 @@ void ParticleSystem::update(float deltaSeconds) {
 }
 
 void ParticleSystem::sendRenderingInformation(RenderingEngine * renderer) {
-	for (ParticleEmitter& emitter : Emitters) {
-		emitter.render(Render, renderer);
-	}
+	RenderGlyphs.resize(0);
+	if (Emitters.size() > 1) {
+		unsigned int ParticleCount = 0;
+		for (unsigned int i = 0; i < Emitters.size(); i++) {
+			ParticleCount += Emitters[i].GetParticleCount();
+		}
+
+		RenderGlyphs.resize(ParticleCount * 2);
+		ParticleCount = 0;
+
+		for (unsigned int i = 0; i < Emitters.size(); i++) {
+			Emitters[i].giveRenderGlyphs(Render, &RenderGlyphs, ParticleCount * 2);
+			ParticleCount += Emitters[i].GetParticleCount();
+		}
+		renderer->getRenderer()->add(RenderGlyphs);
+	} else {
+		RenderGlyphs.resize(Emitters[0].GetParticleCount() * 2);
+
+		Emitters[0].giveRenderGlyphs(Render, &RenderGlyphs, 0);
+		
+		renderer->getRenderer()->add(RenderGlyphs);
+	}	
 }
 
 void ParticleSystem::SetOffset(float x, float y) {

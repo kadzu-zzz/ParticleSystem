@@ -38,7 +38,7 @@ void Engine::intialise() {
 	game = new Game();
 	game->initialise();
 
-	TaskMaster::initialise(4);
+	TaskMaster::initialise(TaskMaster::getNumberOfThreads() / 2);
 }
 
 void Engine::run() {

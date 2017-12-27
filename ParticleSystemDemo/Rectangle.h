@@ -46,6 +46,7 @@ public:
 	bool isFlipX();
 	bool isFlipY();
 
+	std::array<TriangleGlyph, 2> getRenderGlyphs();
 	void sendRenderInformation(VBOBatcher* target) override;
 protected:
 	TextureResource texture;
