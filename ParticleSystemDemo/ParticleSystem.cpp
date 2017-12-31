@@ -17,7 +17,7 @@ void ParticleSystem::AddEmitter(ParticleEmitter emitter) {
 void ParticleSystem::update(float deltaSeconds) {
 	if (Emitters.size() > 1) {
 		//Multithreading masses of trig operations does give a reasonable speed increase ~(10% with 10K particles using trig) without any noticiable synchronization issues. The speed increase is more negligible when using purely linear particles.
-		for (int i = 0; i < Emitters.size(); i++) {
+		for (unsigned int i = 0; i < Emitters.size(); i++) {
 			TaskMaster::addTask(MakeTask(std::bind(&ParticleEmitter::update, &Emitters[i], deltaSeconds)));
 		}
 	} else {

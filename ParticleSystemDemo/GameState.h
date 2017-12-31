@@ -17,6 +17,7 @@ public:
 	virtual void processEvent(SDL_Event e);
 	virtual void processPhysics(float deltaTime) = 0;
 	virtual void serialUpdate(float deltaTime) = 0;
+	virtual void postSerialUpdate(float deltaTime) = 0;
 	virtual void serialRender(RenderingEngine* engine);
 	virtual void adjustRenderEngineSettings(RenderingEngine* engine) = 0;
 

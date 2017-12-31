@@ -61,9 +61,11 @@ public:
 	bool HasCustomSpawnFunction();
 	void ClearCustomSpawnFunction();
 
-	void SetUpdateFunctionFunction(std::function<Particle(ParticleEmitter*)> UpdateFunction);
+	void SetUpdateFunctionFunction(std::function<void(Particle*, ParticleEmitter*)> UpdateFunction);
 	bool HasUpdateFunctionFunction();
 	void ClearUpdateFunctionFunction();
+
+	std::vector<Particle>* GetAllParticles();
 protected:
 	TextureResource Texture;
 	Particle Prototype;

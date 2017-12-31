@@ -77,6 +77,10 @@ void ParticleEmitter::update(float deltaTime) {
 												   static_cast<GLubyte>(GetVariableValue(VariableColourSpawn.g)),
 												   static_cast<GLubyte>(GetVariableValue(VariableColourSpawn.b)),
 												   static_cast<GLubyte>(GetVariableValue(VariableColourSpawn.a)));
+			Particles.back().endColour += Colour(static_cast<GLubyte>(GetVariableValue(VariableColourEnd.r)),
+												 static_cast<GLubyte>(GetVariableValue(VariableColourEnd.g)),
+												 static_cast<GLubyte>(GetVariableValue(VariableColourEnd.b)),
+												 static_cast<GLubyte>(GetVariableValue(VariableColourEnd.a)));
 		}
 		Particles.back().InitialiseUpdateBools();
 
@@ -145,6 +149,7 @@ void ParticleEmitter::giveRenderGlyphs(Rectangle Renderable, std::vector<Triangl
 		Renderable.setCenter(Particles[i].x, Particles[i].y);
 		Renderable.setSize(Particles[i].width, Particles[i].height);
 		Renderable.setRotation(Particles[i].rot);
+		Renderable.setDepth(Particles[i].depth);
 
 		Renderable.setColour(Particles[i].startColour.lerp(Particles[i].endColour, (1.0f - (Particles[i].lifeSpan / Particles[i].startLifeSpan))));
 
@@ -295,7 +300,7 @@ void ParticleEmitter::ClearCustomSpawnFunction() {
 	SpawnFunction = nullptr;
 }
 
-void ParticleEmitter::SetUpdateFunctionFunction(std::function<Particle(ParticleEmitter*)> UpdateFunction) {
+void ParticleEmitter::SetUpdateFunctionFunction(std::function<void(Particle*, ParticleEmitter*)> UpdateFunction) {
 	this->UpdateFunction = UpdateFunction;
 }
 
@@ -305,6 +310,10 @@ bool ParticleEmitter::HasUpdateFunctionFunction() {
 
 void ParticleEmitter::ClearUpdateFunctionFunction() {
 	UpdateFunction = nullptr;
+}
+
+std::vector<Particle>* ParticleEmitter::GetAllParticles() {
+	return &Particles;
 }
 
 inline float ParticleEmitter::GetVariableValue(float Variable) {

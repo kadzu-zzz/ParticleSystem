@@ -17,6 +17,7 @@ public:
 
 	void processPhysics(float deltaTime) override;
 	void serialUpdate(float deltaTime) override;
+	void postSerialUpdate(float deltaTime) override;
 	void adjustRenderEngineSettings(RenderingEngine* engine) override;
 	OrthographicCamera* getCamera() override;
 
@@ -24,6 +25,7 @@ public:
 	void operator delete(void* p) { _mm_free(p); }
 
 protected:
+	int SystemID;
 	OrthographicCamera camera;
 
 	ParticleSystem TestSystem;

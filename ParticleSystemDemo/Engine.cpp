@@ -135,6 +135,7 @@ void Engine::engineLoop() {
 					serialObjects[i]->update(serialDeltaTime);
 			}
 		}
+		state->postSerialUpdate(serialDeltaTime);
 		while (TaskMaster::isDoingWork()) {
 		//	std::this_thread::sleep_for(std::chrono::microseconds(1));
 		};

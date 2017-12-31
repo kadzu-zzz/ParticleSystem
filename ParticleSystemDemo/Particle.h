@@ -3,11 +3,12 @@
 #include "Colour.h"
 
 struct Particle {
-	Particle() : x(0.0f), y(0.0f), rot(0.0f), width(0.0f), height(0.0f), lifeSpan(0.0f), xVelocity(0.0f), yVelocity(0.0f), rotVelocity(0.0f) {};
-	Particle(float x, float y, float rot, float width, float height, Colour colour, float lifeSpan) : x(x), y(y), rot(rot), width(width), height(height), 
+	Particle() : depth(0.5f), x(0.0f), y(0.0f), rot(0.0f), width(0.0f), height(0.0f), lifeSpan(0.0f), xVelocity(0.0f), yVelocity(0.0f), rotVelocity(0.0f) {};
+	Particle(float x, float y, float rot, float width, float height, Colour colour, float lifeSpan) : x(x), y(y), depth(0.5f), rot(rot), width(width), height(height), 
 		lifeSpan(lifeSpan), startLifeSpan(lifeSpan), startColour(colour), xVelocity(0.0f), yVelocity(0.0f), rotVelocity(0.0f), xAcceleration(0.0f), yAcceleration(0.0f), rotAcceleration(0.0f), widthVelocity(0.0f), heightVelocity(0.0f), widthAcceleration(0.0f), heightAcceleration(0.0f), tangentialVelocity(0.0f), tangentialAcceleration(0.0f), radialVelocity(0.0f), radialAcceleration(0.0f) {}
 
 	float x, y, rot;
+	float depth;
 	float width, height;
 	Colour startColour, endColour;
 	float lifeSpan, startLifeSpan;
